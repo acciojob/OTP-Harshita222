@@ -21,3 +21,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+describe('OTP Verification Test', () => {
+    it('should input the OTP correctly', () => {
+        // Visit the page
+        cy.visit(baseUrl + "/main.html");
+
+        // Define an array with the OTP values
+        const otp = [5, 1, 7, 2, 9, 6];
+        
+        // Iterate over each OTP value and input it
+        otp.forEach((digit, index) => {
+            // Get the input field and type the digit
+            cy.get(`.code-container input.code`).eq(index).type(digit);
+            
+            // Wait for the next input field to be focused
+            if (index < otp.length - 1) {
+                cy.focused().should("have.id", `code-${index + 2}`);
+            }
+        });
+    });
+});
