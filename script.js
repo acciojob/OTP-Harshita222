@@ -16,8 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // If backspace is pressed and input is empty, focus the previous input
             if (event.key === 'Backspace' && input.value.length === 0 && index > 0) {
                 inputs[index - 1].focus();
+				
+
             }
         });
     });
+	
+    inputs[0].focus(); 
 });
 
