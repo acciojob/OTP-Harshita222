@@ -26,4 +26,8 @@ body {
     font-size: 18px;
     border: 1px solid #ccc;
     border-radius: 5px;
+	 margin-right: 10px;
+}
+.code:last-child {
+    margin-right: 0;
 }
